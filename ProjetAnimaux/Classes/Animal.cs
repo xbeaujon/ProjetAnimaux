@@ -11,8 +11,6 @@ namespace ProjetAnimaux
     {
         public int ID { get; set; }
 
-        public enumSpecies species;
-
         private string name;
         public string Name
         {
@@ -20,14 +18,12 @@ namespace ProjetAnimaux
             set { name = value; }
         }
 
-        private Race race;
+        public enumSpecies species { get; set; }
 
-        public Race Race
-        {
-            get { return race; }
-            set { race = value; }
-        }
+        [ForeignKey("RaceID")]
+        virtual public Race Race { get; set; }
 
+        public enumGender Gender { get; set; }
 
         private string region;
         public string Region
@@ -38,8 +34,14 @@ namespace ProjetAnimaux
 
         public Animal (){}
 
-
-
+        public Animal(string name, enumSpecies species, Race race, enumGender gender, string region)
+        {
+            Name = name;
+            this.species = species;
+            Race = race;
+            Gender = gender;
+            Region = region;
+        }
 
 
     }
