@@ -9,7 +9,7 @@
       Title="Animals">
 
     <Grid>
-        <Rectangle HorizontalAlignment="Left" Height="60" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="1000">
+        <Rectangle HorizontalAlignment="Left" Height="60" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="1000" StrokeThickness="0">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -19,13 +19,13 @@
         </Rectangle>
         <Label Content="Base de données des animaux" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Arial" FontSize="36" Width="504" Height="50"/>
         <TabControl Name="TabCtrl" Margin="0,60
-                    ,0,0">
+                    ,0,0" BorderThickness="0,0,0,1">
             <TabItem Header="Races" Foreground="Black" Background="#FF86B3EA">
                 <Frame Source="Races.xaml" >
                     <Frame.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="Black"/>
-                            <GradientStop Color="#FF14CAFF" Offset="1"/>
+                            <GradientStop Color="#1d4499"/>
+                            <GradientStop Color="#FF538BCF" Offset="1"/>
                         </LinearGradientBrush>
                     </Frame.Background>
                     <Frame.Foreground>
@@ -41,7 +41,27 @@
                     <Frame.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FF15AA6D"/>
-                            <GradientStop Color="#FF86B3EA" Offset="1"/>
+                            <GradientStop Color="#86e3db" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                </Frame>
+            </TabItem>
+            <TabItem Header="Modif. Races" Background="#FF86B3EA">
+                <Frame Source="ManageRaces.xaml" >
+                    <Frame.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#1d4499"/>
+                            <GradientStop Color="#FF538BCF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                </Frame>
+            </TabItem>
+            <TabItem Header="Modif. Animaux" Background="#FF47D6C9">
+                <Frame Source="ManageAnimals.xaml" >
+                    <Frame.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF15AA6D"/>
+                            <GradientStop Color="#86e3db" Offset="1"/>
                         </LinearGradientBrush>
                     </Frame.Background>
                 </Frame>

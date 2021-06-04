@@ -50,6 +50,26 @@
                     </Frame.Background>
                 </Frame>
             </TabItem>
+            <TabItem Header="Modif. Races" Background="#FF86B3EA">
+                <Frame Source="ManageRaces.xaml" >
+                    <Frame.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#1d4499"/>
+                            <GradientStop Color="#FF538BCF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                </Frame>
+            </TabItem>
+            <TabItem Header="Modif. Animaux" Background="#FF47D6C9">
+                <Frame Source="ManageAnimals.xaml" >
+                    <Frame.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF15AA6D"/>
+                            <GradientStop Color="#86e3db" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                </Frame>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
