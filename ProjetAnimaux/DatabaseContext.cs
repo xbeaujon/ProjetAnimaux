@@ -4,12 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Wpf12V2
+namespace ProjetAnimaux
 {
     public class DatabaseContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-                    => options.UseLazyLoadingProxies().UseSqlServer("Server=LOEN-PC\\SQLSERVER;" +
+                    => options.UseLazyLoadingProxies().UseSqlServer("Server=LOEN-PC\\SQLEXPRESS;" +
                             "Database=ProjetAnimaux;" +
                             "Integrated Security=true");
 

@@ -20,9 +20,12 @@ namespace ProjetAnimaux
     /// </summary>
     public partial class MainWindow : Window
     {
+        private DatabaseContext DB;
         public MainWindow()
         {
             InitializeComponent();
+            DB = new DatabaseContext();
+
         }
     }
 }

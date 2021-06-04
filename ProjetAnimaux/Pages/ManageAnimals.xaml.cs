@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace ProjetAnimaux
 {
     /// <summary>
-    /// Logique d'interaction pour ManagAnimals.xaml
+    /// Logique d'interaction pour ManageAnimals.xaml
     /// </summary>
-    public partial class ManagAnimals : Page
+    public partial class ManageAnimals : Page
     {
-        public ManagAnimals()
+        public ManageAnimals()
         {
             InitializeComponent();
         }

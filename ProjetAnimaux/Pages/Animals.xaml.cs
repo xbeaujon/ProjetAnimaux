@@ -20,9 +20,17 @@ namespace ProjetAnimaux
     /// </summary>
     public partial class Animals : Page
     {
+        private DatabaseContext DB;
         public Animals()
         {
             InitializeComponent();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            DB = ((MainWindow)App.Current.MainWindow).DB;
+            AnimalsLW.ItemsSource = DB.Animals.Local.ToObservableCollection();
+            DB.Animals.ToArray();
         }
     }
 }

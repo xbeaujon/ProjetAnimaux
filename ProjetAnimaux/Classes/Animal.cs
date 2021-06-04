@@ -4,11 +4,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace ProjetAnimaux
 {
-    public class Animal
+    public class Animal : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void PropertyChange(string c)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(c));
+        }
+
+
         public int ID { get; set; }
 
         private string name;
@@ -18,14 +26,19 @@ namespace ProjetAnimaux
             set { name = value; }
         }
 
-        public enumSpecies species { get; set; }
+        public enumSpecies Species { get; set; }
 
-        [ForeignKey("RaceID")]
-        virtual public Race Race { get; set; }
+        private Race race;
+        virtual public Race Race 
+        {
+            get { return race; } 
+            set { race = value; PropertyChange("Race"); }
+        }
 
         public enumGender Gender { get; set; }
 
         private string region;
+
         public string Region
         {
             get { return region; }
@@ -37,7 +50,7 @@ namespace ProjetAnimaux
         public Animal(string name, enumSpecies species, Race race, enumGender gender, string region)
         {
             Name = name;
-            this.species = species;
+            Species = species;
             Race = race;
             Gender = gender;
             Region = region;
