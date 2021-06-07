@@ -16,21 +16,13 @@ using System.Windows.Shapes;
 namespace ProjetAnimaux
 {
     /// <summary>
-    /// Logique d'interaction pour Animals.xaml
+    /// Logique d'interaction pour racePage.xaml
     /// </summary>
-    public partial class Animals : Page
+    public partial class racePage : Page
     {
-        private DatabaseContext DB;
-        public Animals()
+        public racePage()
         {
             InitializeComponent();
-        }
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            DB = ((MainWindow)App.Current.MainWindow).DB;
-            AnimalsLW.ItemsSource = DB.Animals.Local.ToObservableCollection();
-            DB.Animals.ToArray();
         }
     }
 }

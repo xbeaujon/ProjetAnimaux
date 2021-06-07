@@ -23,39 +23,45 @@ namespace ProjetAnimaux
         public string Name
         {
             get { return name; }
-            set { name = value; }
+            set { name = value; PropertyChange("Name"); }
         }
 
-        public enumSpecies Species { get; set; }
+        private enumSpecies species { get; set; }
+        public enumSpecies Species
+        {
+            get { return species; }
+            set { species = value; PropertyChange("Species"); }
+        }
 
-        private Race race;
+    private Race race;
         virtual public Race Race 
         {
             get { return race; } 
             set { race = value; PropertyChange("Race"); }
         }
 
-        public enumGender Gender { get; set; }
+        private enumGender gender { get; set; }
+        public enumGender Gender
+        {
+            get { return gender; }
+            set { gender = value; PropertyChange("Gender"); }
+        }
+
+        private int age;
+
+        public int Age
+        {
+            get { return age; }
+            set { age = value; PropertyChange("Age"); }
+        }
+
 
         private string region;
-
         public string Region
         {
             get { return region; }
-            set { region = value; }
+            set { region = value; PropertyChange("Region"); }
         }
-
-        public Animal (){}
-
-        public Animal(string name, enumSpecies species, Race race, enumGender gender, string region)
-        {
-            Name = name;
-            Species = species;
-            Race = race;
-            Gender = gender;
-            Region = region;
-        }
-
 
     }
 }

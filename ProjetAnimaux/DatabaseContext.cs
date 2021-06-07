@@ -15,6 +15,7 @@ namespace ProjetAnimaux
 
         public DbSet<Race> Races { get; set; }
         public DbSet<Animal> Animals { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
 

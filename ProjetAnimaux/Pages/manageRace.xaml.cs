@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ProjetAnimaux
+namespace ProjetAnimaux.Pages
 {
     /// <summary>
-    /// Logique d'interaction pour ManageRaces.xaml
+    /// Logique d'interaction pour manageRace.xaml
     /// </summary>
-    public partial class ManageRaces : Page
+    public partial class manageRace : Page
     {
-        public ManageRaces()
+        public manageRace()
         {
             InitializeComponent();
         }

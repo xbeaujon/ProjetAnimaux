@@ -2,7 +2,7 @@
 
 namespace ProjetAnimaux.Migrations
 {
-    public partial class first : Migration
+    public partial class firstOne : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -22,15 +22,31 @@ namespace ProjetAnimaux.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Login = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Right = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Animals",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    species = table.Column<int>(type: "int", nullable: false),
+                    Species = table.Column<int>(type: "int", nullable: false),
                     RaceID = table.Column<int>(type: "int", nullable: true),
                     Gender = table.Column<int>(type: "int", nullable: false),
+                    Age = table.Column<int>(type: "int", nullable: false),
                     Region = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -54,6 +70,9 @@ namespace ProjetAnimaux.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Animals");
+
+            migrationBuilder.DropTable(
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Races");

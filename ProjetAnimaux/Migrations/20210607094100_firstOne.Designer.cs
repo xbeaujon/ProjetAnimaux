@@ -10,8 +10,8 @@ using ProjetAnimaux;
 namespace ProjetAnimaux.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20210604033121_first")]
-    partial class first
+    [Migration("20210607094100_firstOne")]
+    partial class firstOne
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,6 +28,9 @@ namespace ProjetAnimaux.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
                     b.Property<int>("Gender")
                         .HasColumnType("int");
 
@@ -40,7 +43,7 @@ namespace ProjetAnimaux.Migrations
                     b.Property<string>("Region")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("species")
+                    b.Property<int>("Species")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
@@ -71,13 +74,39 @@ namespace ProjetAnimaux.Migrations
                     b.ToTable("Races");
                 });
 
+            modelBuilder.Entity("ProjetAnimaux.User", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Login")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Right")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Users");
+                });
+
             modelBuilder.Entity("ProjetAnimaux.Animal", b =>
                 {
                     b.HasOne("ProjetAnimaux.Race", "Race")
-                        .WithMany()
+                        .WithMany("Animals")
                         .HasForeignKey("RaceID");
 
                     b.Navigation("Race");
+                });
+
+            modelBuilder.Entity("ProjetAnimaux.Race", b =>
+                {
+                    b.Navigation("Animals");
                 });
 #pragma warning restore 612, 618
         }

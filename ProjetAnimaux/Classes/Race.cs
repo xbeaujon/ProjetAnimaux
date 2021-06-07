@@ -42,15 +42,5 @@ namespace ProjetAnimaux
         [InverseProperty("Race")]
         public virtual ObservableCollection<Animal> Animals { get; set; }
 
-        public Race() { }
-
-        public Race(string name, int recorded, int toKill, ObservableCollection<Animal> animals)
-        {
-            Name = name;
-            Recorded = recorded;
-            ToKill = toKill;
-            Animals = animals;
-        }
-
     }
 }
