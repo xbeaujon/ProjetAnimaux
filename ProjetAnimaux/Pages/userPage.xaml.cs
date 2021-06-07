@@ -33,27 +33,6 @@ namespace ProjetAnimaux.Pages
             DB.Users.ToArray();
         }
 
-        private void Ajouter_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("User bien ajouté");
-        
-        }
-
-        private void Supprimer_Click(object sender, RoutedEventArgs e)
-        {
-            User selected = (User)UserLV.SelectedItem;
-            if (selected != null)
-            {
-                DB.Users.Remove(selected);
-                DB.SaveChanges();
-            }
-        }
-
-        private void Edition_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("User bien ajouté");
-        }
-
         private void UserLV_Selected(object sender, RoutedEventArgs e)
         {
             User selected = (User)UserLV.SelectedItem;
@@ -66,7 +45,42 @@ namespace ProjetAnimaux.Pages
                 UserGrid.DataContext = null;
             }
         }
+        private void Ajouter_Click(object sender, RoutedEventArgs e)
+        {
+            AdminLogin bookEditionWindow = new AdminLogin(DB);
+            if (bookEditionWindow.ShowDialog() == true)
+            {
+                MessageBox.Show("User bien ajouté");
+            }
+        }
 
-        
+            private void Supprimer_Click(object sender, RoutedEventArgs e)
+        {
+            User selected = (User)UserLV.SelectedItem;
+            if (selected != null)
+            {
+                DB.Users.Remove(selected);
+                DB.SaveChanges();
+            }
+        }
+
+
+        private void Edition_Click(object sender, RoutedEventArgs e)
+        {
+            User selected = (User)UserLV.SelectedItem;
+            if (selected != null)
+            {
+                AdminLogin bookEditionWindow = new AdminLogin(DB, selected);
+                if (bookEditionWindow.ShowDialog() == true)
+                {
+                    UserLV_Selected(null, null);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez selectioner un user");
+            }
+
+        }        
     }
 }

@@ -16,11 +16,17 @@
     </Page.Background>
 
     <Grid>
-        <ListView x:Name="UserLV" SelectionChanged="UserLV_Selected" Margin="10,78,804,0" Height="652" VerticalAlignment="Top" >
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFCD92BD"/>
+                <GradientStop Color="#FFB84388" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <ListView x:Name="UserLV" SelectionChanged="UserLV_Selected" Margin="10,78,804,0" Height="652" VerticalAlignment="Top" FontFamily="Arial" FontSize="16" >
             <ListView.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF8953AE"/>
-                    <GradientStop Color="#FF350755" Offset="1"/>
+                    <GradientStop Color="#FFAB84C5"/>
+                    <GradientStop Color="#FFCAB0DC" Offset="1"/>
                 </LinearGradientBrush>
             </ListView.Background>
             <ListView.ItemTemplate>
@@ -34,11 +40,19 @@
         <Button Content="Ajouter" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Click="Ajouter_Click" RenderTransformOrigin="-4.762,-2.889"/>
         <Button Content="Editer" HorizontalAlignment="Left" Margin="57,53,0,0" VerticalAlignment="Top" Click="Edition_Click"/>
         <Button Content="Supprimer" HorizontalAlignment="Left" Margin="97,53,0,0" VerticalAlignment="Top" Click="Supprimer_Click"/>
-        <Grid Name="UserGrid" Margin="201,78,10,0" Height="652" VerticalAlignment="Top">
-            <Label Name="Login" Content="{Binding Login}" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
-            <Label Name="Right" Content="{Binding Right}" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
+
+        <Grid Name="UserGrid" Margin="200,80,650,0" Width="140" Height="30" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="60"/>
+            </Grid.ColumnDefinitions>
+            <Label Name="Login" Grid.Column="0" Content="{Binding Login}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="30" FontFamily="Arial" FontSize="14"/>
+            <Label Name="Right" Grid.Column="1" Content="{Binding Right}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="30" FontFamily="Arial" FontSize="14"/>
         </Grid>
-        <Label Content="User List" HorizontalAlignment="Left" Margin="31,10,0,0" VerticalAlignment="Top" Height="38" Width="106" Foreground="White" FontFamily="Arial" FontSize="24" RenderTransformOrigin="0.635,0.561"/>
+        <Label Content="User List" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Height="38" Width="106"
+               Foreground="White" FontFamily="Arial" FontSize="24"/>
+        <Label Content="User Name" HorizontalAlignment="Left" Margin="190,62,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14" Foreground="White" Padding="0,0,0,0"/>
+        <Label Content="Right" HorizontalAlignment="Left" Margin="289,62,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold" Foreground="White" Padding="0,0,0,0" RenderTransformOrigin="0.196,0.538"/>
 
     </Grid>
 </Page>
