@@ -29,6 +29,11 @@ namespace ProjetAnimaux
             animalData.Animals.ToList();
         }
 
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+ 
+        }
+
         private void Button_Add(object sender, RoutedEventArgs e)
         {
 

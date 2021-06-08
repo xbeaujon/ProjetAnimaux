@@ -20,9 +20,31 @@ namespace ProjetAnimaux
     /// </summary>
     public partial class racePage : Page
     {
+        DatabaseContext raceData;
         public racePage()
         {
             InitializeComponent();
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            raceData = ((MainWindow)App.Current.MainWindow).DB;
+            RaceLV.ItemsSource = raceData.Races.Local.ToObservableCollection();
+            raceData.Races.ToArray();
+        }
+
+        private void RaceLV_Selected(object sender, RoutedEventArgs e)
+        {
+            Race selected = (Race)RaceLV.SelectedItem;
+            if (selected != null)
+            {
+                RaceDetails.DataContext = selected;
+            }
+            else
+            {
+                RaceDetails.DataContext = null;
+            }
+        }
+
     }
 }

@@ -24,6 +24,10 @@ namespace ProjetAnimaux.Pages
         public animalPage()
         {
             InitializeComponent();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
             animalData = new DatabaseContext();
             AnimalGrid.ItemsSource = animalData.Animals.Local.ToObservableCollection();
             animalData.Animals.ToList();

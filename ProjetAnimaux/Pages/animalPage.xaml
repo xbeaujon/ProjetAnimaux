@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:ProjetAnimaux.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="740" d:DesignWidth="1000"
-      Title="Les Animaux">
+      Title="Les Animaux"
+      Loaded="Page_Loaded">
 
     <Grid>
         <DataGrid x:Name="AnimalGrid" AutoGenerateColumns="False" VerticalScrollBarVisibility="Auto" IsReadOnly="True">

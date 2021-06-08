@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:ProjetAnimaux"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1000"
-      Title="Manage Animal">
+      Title="Manage Animal"
+      Loaded="Page_Loaded">
     <Grid>
         <DataGrid x:Name="AnimalGrid" AutoGenerateColumns="False" VerticalScrollBarVisibility="Auto" IsReadOnly="True">
             <DataGrid.Background>
