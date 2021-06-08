@@ -47,8 +47,8 @@ namespace ProjetAnimaux.Pages
         }
         private void Ajouter_Click(object sender, RoutedEventArgs e)
         {
-            AdminLogin bookEditionWindow = new AdminLogin(DB);
-            if (bookEditionWindow.ShowDialog() == true)
+            AdminLogin userAdmin = new AdminLogin(DB);
+            if (userAdmin.ShowDialog() == true)
             {
                 MessageBox.Show("User bien ajouté");
             }
@@ -70,8 +70,8 @@ namespace ProjetAnimaux.Pages
             User selected = (User)UserLV.SelectedItem;
             if (selected != null)
             {
-                AdminLogin bookEditionWindow = new AdminLogin(DB, selected);
-                if (bookEditionWindow.ShowDialog() == true)
+                AdminLogin userAdmin = new AdminLogin(DB, selected);
+                if (userAdmin.ShowDialog() == true)
                 {
                     UserLV_Selected(null, null);
                 }

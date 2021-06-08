@@ -39,10 +39,49 @@ namespace ProjetAnimaux
             if (selected != null)
             {
                 RaceDetails.DataContext = selected;
+                Delete.Visibility = (selected.Animals.Count > 0) ? Visibility.Collapsed : Visibility.Visible;
             }
             else
             {
                 RaceDetails.DataContext = null;
+                Delete.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void Button_Add(object sender, RoutedEventArgs e)
+        {
+            AdminLogin raceEdition = new AdminLogin(raceData);
+            if (raceEdition.ShowDialog() == true)
+            {
+                MessageBox.Show("Race bien ajouté");
+            }
+        }
+
+        private void Button_Modify(object sender, RoutedEventArgs e)
+        {
+            Race selected = (Race)RaceLV.SelectedItem;
+            if (selected != null)
+            {
+                manageRace Raceadmin = new manageRace(raceData, selected);
+                if (Raceadmin.ShowDialog() == true)
+                {
+                    RaceLV_Selected(null, null);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez selectioner un user");
+            }
+
+        }
+
+        private void Button_Delete(object sender, RoutedEventArgs e)
+        {
+            User selected = (User)RaceLV.SelectedItem;
+            if (selected != null)
+            {
+                raceData.Races.Remove(selected);
+                raceData.SaveChanges();
             }
         }
 

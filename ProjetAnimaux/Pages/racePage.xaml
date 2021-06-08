@@ -32,6 +32,9 @@
                     <DataGridTextColumn Header="Liste ID" Binding="{Binding Animals}" />
                 </DataGrid.Columns>
             </DataGrid>
+            <Button Name="Add" Content="Ajouter" HorizontalAlignment="Left" Margin="20,-25,0,0" VerticalAlignment="Top" Click="Button_Add"/>
+            <Button Name="Edit" Content="Editer" HorizontalAlignment="Left" Margin="68,-25,0,0" VerticalAlignment="Top" Click="Button_Modify"/>
+            <Button Name="Delete" Content="Supprimer" HorizontalAlignment="Left" Margin="108,-25,0,0" VerticalAlignment="Top" Click="Button_Delete"/>
             <Label Content="Détails de la Race" HorizontalAlignment="Center" Margin="0,-30,0,0" VerticalAlignment="Top" Padding="0,0,0,0" FontFamily="Arial" FontWeight="Bold" FontSize="22"/>
         </Grid>
         <Label Content="Nom Races" HorizontalAlignment="Left" Margin="101,32,0,0" VerticalAlignment="Top" Padding="0,0,0,0" Background="#FF88F9D5" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="20"/>
